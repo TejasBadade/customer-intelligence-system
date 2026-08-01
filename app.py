@@ -16,8 +16,8 @@ st.set_page_config(
 # ─── Load Data & Models ───
 @st.cache_data  # Don't read the CSV every time.
 def load_data():
-    df_encoded = pd.read_csv(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\telco_churn_final_complete.csv")
-    df_original = pd.read_csv(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\telco_churn_featured.csv") # Used for graphs.
+    df_encoded = pd.read_csv("telco_churn_final_complete.csv")
+    df_original = pd.read_csv("telco_churn_featured.csv") # Used for graphs.
     df_original['Churn'] = df_original['Churn'].replace({'Yes': 1, 'No': 0}) # because mathematical calculations require numbers.
     df_original['Churn'] = pd.to_numeric(df_original['Churn'],
                             errors='coerce').fillna(0).astype(int)
@@ -25,12 +25,12 @@ def load_data():
 
 @st.cache_resource
 def load_models():
-    clf = joblib.load(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\churn_classifier.pkl")
-    reg = joblib.load(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\tenure_regressor.pkl")
-    kmeans = joblib.load(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\kmeans_cluster.pkl")
-    scaler = joblib.load(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\cluster_scaler.pkl")
-    clf_features = joblib.load(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\feature_columns.pkl")
-    reg_features = joblib.load(r"C:\Users\ASUS\Python Jupyter\Customer_Intelligence_System\regression_features.pkl")
+    clf = joblib.load("churn_classifier.pkl")
+    reg = joblib.load("tenure_regressor.pkl")
+    kmeans = joblib.load("kmeans_cluster.pkl")
+    scaler = joblib.load("cluster_scaler.pkl")
+    clf_features = joblib.load("feature_columns.pkl")
+    reg_features = joblib.load("regression_features.pkl")
     return clf, reg, kmeans, scaler, clf_features, reg_features
 
 df, df_viz = load_data()
