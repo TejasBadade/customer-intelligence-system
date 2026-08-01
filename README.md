@@ -8,8 +8,6 @@ An end-to-end customer analytics platform built on the Telco Customer Churn data
 
 *(Note: free-tier Streamlit apps sleep after inactivity — if the link seems slow to load, give it a few seconds to wake up.)*
 
-![App Screenshot](demo_screenshot.png)
-
 ## 📌 Project Overview
 
 This is a capstone project that goes beyond a single model — it's a full **customer intelligence pipeline** covering four connected ML tasks on real telecom customer data:
